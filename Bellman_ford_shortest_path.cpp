@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int N=1e5;
+const int INF = 1e9;
 
 vector<pair<int,int>>adj_list[N];
 int d[N];
@@ -9,7 +10,7 @@ int main(){
     int n,m;
     cin>>n>>m;
     for(int i=1;i<=n;i++){
-        d[i] = INT_MAX;
+        d[i] = INF;
     }
     for(int i=0;i<m;i++){
         int u,v,w;
@@ -19,8 +20,9 @@ int main(){
 
     int src = 1;
     d[src] = 0;
-    for(int i=1;i<=n-1;i++){
-        for(int node=1;node<n;node++){
+    bool negative_cycle = false;
+    for(int i=1;i<=n;i++){
+        for(int node=1;node<=n;node++){
             for(auto adj_node: adj_list[node]){
                 int u = node;
                 int v = adj_node.first;
@@ -28,12 +30,20 @@ int main(){
 
                 if(d[u] + w < d[v]){
                     d[v] = d[u] + w;
+                    if(i==n){
+                        negative_cycle = true;
+                    }
                 }
             }
         }
     }
-    for(int i=1;i<=n;i++){
-        cout<<i<<"-> "<<d[i]<<endl;
+    if(negative_cycle == true){
+        cout<<"Negative cycle detected"<<endl;
+    }
+    else{
+        for(int i=1;i<=n;i++){
+            cout<<i<<"-> "<<d[i]<<endl;
+        }
     }
     cout<<endl;
 
@@ -42,15 +52,21 @@ int main(){
 }
 
 /**
-
+test case 1
 4 3
 3 4 3
 2 3 -1
 1 2 5
 
+test case 2
+3 3
+3 1 1
+2 3 -10
+1 2 5
+
+
 Time complexity -> O(n*m)
 Space complexity -> O(n)
-Note: This is not work for negative cycle
 
 **/
 
