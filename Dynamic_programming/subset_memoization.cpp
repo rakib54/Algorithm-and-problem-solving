@@ -23,7 +23,8 @@ int subset_sum(int n,int target){
         return ans1;
     }
     int ans2 = subset_sum(n-1,target - nums[n]);
-    int ans = ans1 || ans2;
+    int ans = ans1 || ans2;  // if any of the ans1 or ans2 are found it stores 1
+
     dp[n][target] = ans;
     return ans;
 }
@@ -35,7 +36,7 @@ int main(){
     for(int i=1;i<=n;i++){
         cin>>nums[i];
     }
-
+    cout<<"1 or 0: "<<1 || 1<<'\n';
     memset(dp,-1,sizeof(dp));
 
     if(subset_sum(n,target)){
@@ -43,6 +44,18 @@ int main(){
     }
     else cout<<"False"<<endl;
 
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=target; j++){
+            cout<<dp[i][j] << " ";
+        }
+        cout<<endl;
+    }
+
     return 0;
 }
+
+/**
+3 9
+4 2 3
+**/
 
