@@ -28,7 +28,6 @@ int main(){
     ans.push_back(v);
   }
   
-  
 
   return 0;
 }
