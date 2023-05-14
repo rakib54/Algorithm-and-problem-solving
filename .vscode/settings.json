@@ -38,6 +38,8 @@
     "ostream": "cpp",
     "iostream": "cpp",
     "bitset": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "random": "cpp",
+    "ratio": "cpp"
   }
 }
