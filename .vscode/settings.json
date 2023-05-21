@@ -22,10 +22,7 @@
   "C_Cpp_Runner.compilerArgs": [],
   "C_Cpp_Runner.linkerArgs": [],
   "C_Cpp_Runner.includePaths": [],
-  "C_Cpp_Runner.includeSearch": [
-    "*",
-    "**/*"
-  ],
+  "C_Cpp_Runner.includeSearch": ["*", "**/*"],
   "C_Cpp_Runner.excludeSearch": [
     "**/build",
     "**/build/**",
@@ -35,11 +32,14 @@
     "**/.vscode/**"
   ],
   "files.associations": {
+    "*html": "html",
+    "*njk": "html",
     "ostream": "cpp",
     "iostream": "cpp",
     "bitset": "cpp",
     "algorithm": "cpp",
     "random": "cpp",
-    "ratio": "cpp"
+    "ratio": "cpp",
+    "*.tcc": "cpp"
   }
 }
