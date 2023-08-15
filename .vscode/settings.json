@@ -40,6 +40,7 @@
     "algorithm": "cpp",
     "random": "cpp",
     "ratio": "cpp",
-    "*.tcc": "cpp"
+    "*.tcc": "cpp",
+    "new": "cpp"
   }
 }
