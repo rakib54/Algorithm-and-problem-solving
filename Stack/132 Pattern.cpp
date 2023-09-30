@@ -13,11 +13,11 @@ public:
 
     for (int i = n - 1; i >= 0; i--)
     {
-      if (nums[i] < third)
+      if (nums[i] < third) // third element is second highest number (i < k)
       {
         return true;
       }
-      while (!st.empty() && st.top() < nums[i])
+      while (!st.empty() && st.top() < nums[i]) // element that is in the stack are maximum (j should be in the stack)
       {
         third = st.top();
         st.pop();
