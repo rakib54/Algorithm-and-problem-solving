@@ -63,3 +63,28 @@ int main()
 
   return 0;
 }
+
+/*
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        unordered_map<int,int>mp;
+        int count = 0;
+        for(auto num: nums){
+            mp[num]++;
+        }
+
+        for(auto ele: mp){
+            int val = ele.second;
+            if(val == 1) return -1;
+            count += val/3;
+            if(val % 3){
+                count++;
+            }
+        }
+
+        return count;
+    }
+};
+
+**/
