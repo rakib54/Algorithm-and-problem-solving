@@ -12,6 +12,7 @@ struct TreeNode
   TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
+// Traditional bfs
 class Solution
 {
 public:
@@ -58,3 +59,68 @@ int main()
 
   return 0;
 }
+
+// level order traversal
+class Solution2
+{
+public:
+  int result;
+  void bfs(TreeNode *root)
+  {
+    queue<TreeNode *> q;
+    q.push(root);
+
+    while (!q.empty())
+    {
+      int n = q.size();
+
+      while (n--)
+      {
+        TreeNode *curr = q.front();
+        q.pop();
+        result = curr->val;
+        if (curr->right)
+        {
+          q.push(curr->right);
+        }
+        if (curr->left)
+        {
+          q.push(curr->left);
+        }
+      }
+    }
+  }
+  int findBottomLeftValue(TreeNode *root)
+  {
+    bfs(root);
+    return result;
+  }
+};
+
+// dfs
+class Solution3
+{
+public:
+  int result;
+  int maxDepth;
+  void dfs(TreeNode *root, int currDepth)
+  {
+    if (!root)
+      return;
+
+    if (currDepth > maxDepth)
+    {
+      result = root->val;
+      maxDepth = currDepth;
+    }
+
+    dfs(root->left, currDepth + 1);
+    dfs(root->right, currDepth + 1);
+  }
+  int findBottomLeftValue(TreeNode *root)
+  {
+    maxDepth = -1;
+    dfs(root, 0);
+    return result;
+  }
+};
