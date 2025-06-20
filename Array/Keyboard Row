@@ -1,0 +1,92 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+class Solution
+{
+public:
+  vector<string> findWords(vector<string> &words)
+  {
+    vector<string> ans;
+    string s1 = "qwertyuiop";
+    string s2 = "asdfghjkl";
+    string s3 = "zxcvbnm";
+
+    int n = words.size();
+
+    for (int i = 0; i < n; i++)
+    {
+      string word = words[i];
+      int t = word.size();
+      int k = 0;
+      for (char &ch : word)
+      {
+        char a = tolower(ch);
+        if (s1.find(a) != string::npos)
+        {
+          k++;
+        }
+        else
+        {
+          break;
+        }
+        if (k == t)
+        {
+          ans.push_back(word);
+        }
+      }
+    }
+    for (int i = 0; i < n; i++)
+    {
+      string word = words[i];
+      int t = word.size();
+      int k = 0;
+      for (char &ch : word)
+      {
+        char a = tolower(ch);
+        if (s2.find(a) != string::npos)
+        {
+          k++;
+        }
+        else
+        {
+          break;
+        }
+        if (k == t)
+        {
+          ans.push_back(word);
+        }
+      }
+    }
+    for (int i = 0; i < n; i++)
+    {
+      string word = words[i];
+      int t = word.size();
+      int k = 0;
+      for (char &ch : word)
+      {
+        char a = tolower(ch);
+        if (s3.find(a) != string::npos)
+        {
+          k++;
+        }
+        else
+        {
+          break;
+        }
+        if (k == t)
+        {
+          ans.push_back(word);
+        }
+      }
+    }
+
+    return ans;
+  }
+};
+
+int main()
+{
+
+  return 0;
+}
