@@ -33,6 +33,33 @@ public:
   }
 };
 
+class Solution2
+{
+public:
+  int totalMoney(int n)
+  {
+    int total = 0;
+    int i = 1;
+    int day = 0;
+    int j = 1;
+    while (n--)
+    {
+
+      if (day == 7)
+      {
+        i = j + 1;
+        day = 0;
+        j++;
+      }
+      total += i;
+      i++;
+      day++;
+    }
+
+    return total;
+  }
+};
+
 int main()
 {
   Solution s;
